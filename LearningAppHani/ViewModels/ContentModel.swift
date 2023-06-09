@@ -12,7 +12,9 @@ class ContentModel: ObservableObject{
     
     @Published var modules = [Module]()
     @Published var currentModule:Module?
-    var currentModuleIndex=0
+    @Published var currentLesson:Lesson?
+    var currentModuleIndex = 0
+    var currentLessonIndex = 0
     
     var styleData: Data?
     
@@ -20,8 +22,7 @@ class ContentModel: ObservableObject{
         
         getLocalData()
     }
-    
-    
+      
     //MARK: -data methods
     func getLocalData(){
         
@@ -62,5 +63,17 @@ class ContentModel: ObservableObject{
         
         currentModule = modules[currentModuleIndex]
     }
+    
+//    func beginLesson(_ lessonIndex:Int){
+//        
+//        if lessonIndex < currentModule!.content.lessons.count{
+//            currentLesson = lessonIndex
+//        }
+//        else{
+//            currentLessonIndex = 0
+//        }
+//        
+//        currentLesson = currentModule!.content.lessons[currentLessonIndex]
+//    }
     
 }
